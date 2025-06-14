@@ -11,4 +11,5 @@ WORKDIR /opt/app
 COPY ${artifact} app.jar
 
 # Start application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["tail", "-f", "/dev/null"]
