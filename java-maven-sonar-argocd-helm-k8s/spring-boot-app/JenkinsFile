@@ -1,16 +1,10 @@
 pipeline {
   agent {
     docker {
-      image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock -e JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 -e PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH'
+      image 'charan8096/maven-charan-docker-agent:v1'
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
-
-// environment {
-// JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
-   //  PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-  // }
-
 
   stages {
     stage('Checkout') {
@@ -44,7 +38,7 @@ pipeline {
 
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "charan8096/ultimate-cicd:${BUILD_NUMBER}"
       }
       steps {
         script {
