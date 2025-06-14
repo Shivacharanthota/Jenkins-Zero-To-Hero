@@ -1,7 +1,8 @@
 # Use Java 17 JDK base image
 FROM eclipse-temurin:17-jdk-alpine
 
-RUN apk update && apk add maven git
+RUN apk update && \
+    apk add --no-cache maven git docker-cli
 
 # Optional: Define artifact path
 ARG artifact=target/spring-boot-web.jar
