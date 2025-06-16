@@ -4,16 +4,9 @@ FROM eclipse-temurin:17-jdk-alpine
 RUN apk update && \
     apk add --no-cache maven git docker-cli
 
-# Optional: Define artifact path
-ARG artifact=target/spring-boot-web.jar
-
-# Set work directory
 WORKDIR /opt/app
 
-# Copy app artifact
-COPY ${artifact} app.jar
+# Copy the built JAR regardless of version
+COPY target/*.jar app.jar
 
-# Start application
-# ENTRYPOINT ["java", "-jar", "app.jar"]
-# CMD ["tail", "-f", "/dev/null"]
 CMD ["java", "-jar", "app.jar"]
