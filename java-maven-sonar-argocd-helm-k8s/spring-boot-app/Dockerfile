@@ -15,4 +15,5 @@ COPY ${artifact} app.jar
 
 # Start application
 # ENTRYPOINT ["java", "-jar", "app.jar"]
-CMD ["tail", "-f", "/dev/null"]
+# CMD ["tail", "-f", "/dev/null"]
+CMD ["java", "-jar", "app.jar"]
