@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: charan8096/ultimate-cicd:latest
+        image: charan8096/ultimate-cicd:18
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
